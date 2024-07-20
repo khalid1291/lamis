@@ -528,7 +528,7 @@ Widget buildOverlay(context, child) {
     ),
   );
 }
-
+}
 class SingleSelection extends StatefulWidget {
   const SingleSelection(
       {Key? key,
