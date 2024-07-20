@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "342338834344",
+    "project_id": "lamis-cf1ab",
+    "storage_bucket": "lamis-cf1ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342338834344:android:45c15f2e769a66944f979d",
+        "android_client_info": {
+          "package_name": "com.lamis.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342338834344-3d4mlu6iu033as85v590jigpmuacqubi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLdy04WSaKbEg3ZvA5Da-HMRIrCEByJvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342338834344-3d4mlu6iu033as85v590jigpmuacqubi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

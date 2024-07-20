@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "308714072756",
+    "project_id": "lamis-demo",
+    "storage_bucket": "lamis-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308714072756:android:aeaeaa176ccb65545585e1",
+        "android_client_info": {
+          "package_name": "jo.lamis.lamis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308714072756-egje22i1v0a9ebsn16lr03c5skt32t8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOih5EWfe0N1OJihkTcWozQbPMEUo5vnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308714072756-egje22i1v0a9ebsn16lr03c5skt32t8h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "308714072756-42mbqqfj7uiqbjit1bujedu4ta3el8sh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "scds"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
