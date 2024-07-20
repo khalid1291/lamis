@@ -428,109 +428,105 @@ class _DropDownTextFieldState extends State<DropDownTextField>
       entry = null;
     });
   }
-
-  Widget buildOverlay(context, child) {
-    return ClipRect(
-      child: Align(
-        heightFactor: _heightFactor.value,
-        child: Material(
-          color: Colors.transparent,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomRight,
-                  end: Alignment.topLeft,
-                  colors: [
-                    Theme.of(context).colorScheme.lightBlue,
-                    Theme.of(context).colorScheme.drawerLayerOne,
-                    Theme.of(context).colorScheme.scaffoldColor,
-                    Theme.of(context).colorScheme.scaffoldColor,
-                    Theme.of(context).colorScheme.scaffoldColor,
-                  ],
-                ),
-                color: Theme.of(context).backgroundColor,
-                borderRadius:
-                    BorderRadius.all(Radius.circular(widget.dropdownRadius)),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5,
-                  ),
+Widget buildOverlay(context, child) {
+  return ClipRect(
+    child: Align(
+      heightFactor: _heightFactor.value,
+      child: Material(
+        color: Colors.transparent,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+                colors: [
+                  Theme.of(context).colorScheme.primary,
+                  Theme.of(context).colorScheme.secondary,
+                  Theme.of(context).colorScheme.background,
+                  Theme.of(context).colorScheme.background,
+                  Theme.of(context).colorScheme.background,
                 ],
               ),
-              child: !widget.isMultiSelection
-                  ? SingleSelection(
-                      mainFocusNode: textFieldFocusNode,
-                      searchFocusNode: searchFocusNode,
-                      enableSearch: widget.enableSearch,
-                      height: height,
-                      dropDownList: dropDownList,
-                      onChanged: (item) {
-                        setState(() {
-                          _cnt.text = item.name;
-                          isExpanded = !isExpanded;
-                        });
-                        if (widget.singleController != null) {
-                          widget.singleController!.setDropDown(item);
-                        }
-                        if (widget.onChanged != null) {
-                          widget.onChanged!(item);
-                        }
-                        // Navigator.pop(context, null);
-
-                        hideOverlay();
-                      },
-                      searchHeight: searchWidgetHeight,
-                      searchKeyboardType: widget.searchKeyboardType,
-                      searchAutofocus: widget.searchAutofocus,
-                      searchShowCursor: widget.searchShowCursor,
-                    )
-                  : MultiSelection(
-                      height: height,
-                      list: multiSelectionValue,
-                      dropDownList: dropDownList,
-                      onChanged: (val) {
-                        isExpanded = !isExpanded;
-                        multiSelectionValue = val;
-                        List<DropDownValueModel> result = [];
-                        List completeList = [];
-                        for (int i = 0; i < multiSelectionValue.length; i++) {
-                          if (multiSelectionValue[i]) {
-                            result.add(dropDownList[i]);
-                            completeList.add(dropDownList[i].name);
-                          }
-                        }
-                        int count = multiSelectionValue
-                            .where((element) => element)
-                            .toList()
-                            .length;
-
-                        _cnt.text = (count == 0
-                            ? ""
-                            : widget.displayCompleteItem
-                                ? completeList.join(",")
-                                : "$count item selected");
-                        if (widget.multiController != null) {
-                          widget.multiController!
-                              .setDropDown(result.isNotEmpty ? result : null);
-                        }
-                        if (widget.onChanged != null) {
-                          widget.onChanged!(result);
-                        }
-
-                        hideOverlay();
-
-                        setState(() {});
-                      },
-                    ),
+              color: Theme.of(context).colorScheme.background,
+              borderRadius:
+                  BorderRadius.all(Radius.circular(widget.dropdownRadius)),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 5,
+                ),
+              ],
             ),
+            child: !widget.isMultiSelection
+                ? SingleSelection(
+                    mainFocusNode: textFieldFocusNode,
+                    searchFocusNode: searchFocusNode,
+                    enableSearch: widget.enableSearch,
+                    height: height,
+                    dropDownList: dropDownList,
+                    onChanged: (item) {
+                      setState(() {
+                        _cnt.text = item.name;
+                        isExpanded = !isExpanded;
+                      });
+                      if (widget.singleController != null) {
+                        widget.singleController!.setDropDown(item);
+                      }
+                      if (widget.onChanged != null) {
+                        widget.onChanged!(item);
+                      }
+                      hideOverlay();
+                    },
+                    searchHeight: searchWidgetHeight,
+                    searchKeyboardType: widget.searchKeyboardType,
+                    searchAutofocus: widget.searchAutofocus,
+                    searchShowCursor: widget.searchShowCursor,
+                  )
+                : MultiSelection(
+                    height: height,
+                    list: multiSelectionValue,
+                    dropDownList: dropDownList,
+                    onChanged: (val) {
+                      isExpanded = !isExpanded;
+                      multiSelectionValue = val;
+                      List<DropDownValueModel> result = [];
+                      List completeList = [];
+                      for (int i = 0; i < multiSelectionValue.length; i++) {
+                        if (multiSelectionValue[i]) {
+                          result.add(dropDownList[i]);
+                          completeList.add(dropDownList[i].name);
+                        }
+                      }
+                      int count = multiSelectionValue
+                          .where((element) => element)
+                          .toList()
+                          .length;
+
+                      _cnt.text = (count == 0
+                          ? ""
+                          : widget.displayCompleteItem
+                              ? completeList.join(",")
+                              : "$count item selected");
+                      if (widget.multiController != null) {
+                        widget.multiController!
+                            .setDropDown(result.isNotEmpty ? result : null);
+                      }
+                      if (widget.onChanged != null) {
+                        widget.onChanged!(result);
+                      }
+
+                      hideOverlay();
+
+                      setState(() {});
+                    },
+                  ),
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
 }
 
 class SingleSelection extends StatefulWidget {
