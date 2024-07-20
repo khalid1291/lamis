@@ -15,7 +15,8 @@ dependencies:
   flutter_bloc: ^8.0.1
   http: ^0.13.3 #This is used for the API call
   carousel_slider: ^4.0.0
-  cached_network_image: ^3.2.0
+  cached_network_image: ^3.3.1
+  
   flutter_rating_bar: ^4.0.0
   image_picker: ^0.8.4+2
   permission_handler: ^10.2.0
